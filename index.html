@@ -20,6 +20,8 @@
     <center><h1 id="instructions"> Scroll Using Arrows</h1></center>
     <div id="container"></div>
     <script>
+        var index = 0;
+
         function change_background(h, s, l) {
             var h = h.toString();
             var s = s.toString();
@@ -133,6 +135,7 @@
                     lines.push(tarr);
                 }
             }
+            console.log('test 1')
             return lines;
         }
 
@@ -150,7 +153,9 @@
             xmlhttp.onreadystatechange = function () {               
                 if (xmlhttp.readyState == 4) {                   
                     var lines = xmlhttp.responseText;    
-                    return processData(lines);                       
+                    x = processData(lines);  
+                    console.log('test 2')
+                    console.log('lines')
                 }               
             }
 
