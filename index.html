@@ -82,7 +82,7 @@
         var step = window.innerWidth/(intervals-1);
         var a = a;
         var i = intervals;
-        var amp = 120;
+        var amp = 200;
         var points = [];
         var h = h.toString();
         var s = s.toString();
@@ -137,7 +137,7 @@
         var layer = new Konva.Layer();
         
         for (j = 0; j < 20; j++) {
-            var y = makeline(a, 9, h, s, l)
+            var y = makeline(a, 11, h, s, l)
             y.move({
                 x : 0,
                 y : 25 + 50*j
