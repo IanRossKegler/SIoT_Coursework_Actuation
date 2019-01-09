@@ -136,11 +136,11 @@
             
         var layer = new Konva.Layer();
         
-        for (s = 0; s < 20; s++) {
+        for (j = 0; j < 20; j++) {
             var y = makeline(a, 7, h, s, l)
             y.move({
                 x : 0,
-                y : 25 + 50*s
+                y : 25 + 50*j
                 });
             layer.add(y);
         }
