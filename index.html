@@ -20,7 +20,10 @@
     <center><h1 id="instructions"> Scroll Using Arrows</h1></center>
     <div id="container"></div>
     <script>
+
+        document.onkeydown = checkKey;
         var index = 1;
+        var data = getData();
 
         function changeBackground(h, s, l) {
             var h = h.toString();
@@ -100,7 +103,7 @@
             stage.add(layer);
         }
 
-        function formatData(){
+        function formatData(data){
 
             if (index >= 1){
                 var point = data[index];
@@ -188,13 +191,6 @@
             xmlhttp.open("GET", "data.txt", true);
             xmlhttp.send();    
         }
-
-        document.onkeydown = checkKey;
-        var data = getData();
-
-
-
-
 
     </script>
 </body>
