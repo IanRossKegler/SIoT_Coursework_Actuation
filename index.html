@@ -119,13 +119,14 @@
         
         function processData(allText) {
             var allTextLines = allText.split(/\r\n|\n/);
+            var dataLength = allTextLines[0].length;
             var lines = [];
             
             for (var i=0; i<allTextLines.length; i++) {
                 var data = allTextLines[i].split(',');
                 var tarr = [];
                 
-                for (var j=0; j<headers.length; j++) {
+                for (var j=0; j<dataLength; j++) {
                     tarr.push(data[j]);
                 }
                 lines.push(tarr);
