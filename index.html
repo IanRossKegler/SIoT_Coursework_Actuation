@@ -119,19 +119,22 @@
         
         function processData(allText) {
             var allTextLines = allText.split(/\r\n|\n/);
-            var dataLength = allTextLines[0].length;
+            var headers = allTextLines[0].split(',');
             var lines = [];
             
-            for (var i=0; i<allTextLines.length; i++) {
+            for (var i=1; i<allTextLines.length; i++) {
                 var data = allTextLines[i].split(',');
-                var tarr = [];
-                
-                for (var j=0; j<dataLength; j++) {
-                    tarr.push(data[j]);
+                if (data.length == headers.length) {
+                    var tarr = [];
+                    
+                    for (var j=0; j<headers.length; j++) {
+                        tarr.push(data[j]);
+                    }
+                    lines.push(tarr);
                 }
-                lines.push(tarr);
             }
-            console.log(lines[0]);
+
+            console.log(lines);
         }
 
         function getData(){
@@ -147,9 +150,8 @@
             
             xmlhttp.onreadystatechange = function () {               
                 if (xmlhttp.readyState == 4) {                   
-                    var lines = xmlhttp.responseText;
-                    processData(lines);
-
+                    var lines = xmlhttp.responseText;    
+                    processData(lines);                       
                 }               
             }
 
