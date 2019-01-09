@@ -116,7 +116,7 @@
         var line = new Konva.Line({
             points: points,
             stroke: color,
-            strokeWidth: 4,
+            strokeWidth: 7,
             lineCap: 'round',
             lineJoin: 'round',
             tension : 0.5
@@ -137,7 +137,7 @@
         var layer = new Konva.Layer();
         
         for (j = 0; j < 20; j++) {
-            var y = makeline(a, 7, h, s, l)
+            var y = makeline(a, 9, h, s, l)
             y.move({
                 x : 0,
                 y : 25 + 50*j
