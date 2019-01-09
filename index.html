@@ -163,12 +163,12 @@
         var cc = point[3];
 
         var b_d = 200 + 150 * uv;
-        var b_s = 10 + 90 * Math.random();
-        var b_b = 60 + 40 * Math.random();
+        var b_s = 50 + 50 * Math.random();
+        var b_b = 35 + 15 * Math.random();
 
         var l_d = 60 + 110 * cc;
-        var l_s = 40 + 60 * Math.random();
-        var l_b = 50;
+        var l_s = 50 + 50 * Math.random();
+        var l_b = 65;
 
         var formatData = [dt, parseFloat(tweet), b_d, b_s, b_b, l_d, l_s, l_b];
         return formatData;
@@ -188,16 +188,16 @@
 
         }
         else if (e.keyCode == '38') {
-            var coeff = formatData();
-            setStage(coeff[1], coeff[5], coeff[6], coeff[7]);
-            changeBackground(coeff[2], coeff[3], coeff[4]);
-            instructions.innerText = coeff[0];
             if (index > 1){
                 index = index - 1;
             }
             else{
                 index = 1;
             }
+            var coeff = formatData();
+            setStage(coeff[1], coeff[5], coeff[6], coeff[7]);
+            changeBackground(coeff[2], coeff[3], coeff[4]);
+            instructions.innerText = coeff[0];            
         }
     }
 
