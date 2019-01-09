@@ -180,6 +180,7 @@
 
         if (e.keyCode == '40') {
             var coeff = formatData();
+            console.log(coeff);
             setStage(coeff[1], coeff[5], coeff[6], coeff[7]);
             changeBackground(coeff[2], coeff[3], coeff[4]);
             instructions.innerText = coeff[0];
