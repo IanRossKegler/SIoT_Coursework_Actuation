@@ -25,9 +25,6 @@
     var data = [];
     getData();
 
-    console.log('test 1');
-    console.log(data);
-
     function processData(allText) {
         var allTextLines = allText.split(/\r\n|\n/);
         var headers = allTextLines[0].split(',');
@@ -68,10 +65,6 @@
         xmlhttp.open("GET", "data.txt", true);
         xmlhttp.send();    
     }
-    
-
-    console.log('test 2');
-    console.log(data);
 
     document.onkeydown = checkKey;
 
@@ -131,7 +124,7 @@
         return line;
     }
     
-    function setStage(){
+    function setStage(a, h, s, l){
         var width = window.innerWidth;
         var height = window.innerHeight;
         var stage = new Konva.Stage({
@@ -143,7 +136,7 @@
         var layer = new Konva.Layer();
         
         for (l = 0; l < 20; l++) {
-            var y = makeline(1, 7, 220, 50, 50)
+            var y = makeline(a, 7, h, s, l)
             y.move({
                 x : 0,
                 y : 25 + 50*l
@@ -154,9 +147,6 @@
     }
 
     function formatData(){
-
-        console.log('test 3');
-        console.log(data);
 
         if (index >= 1){
             var point = data[index];
@@ -179,7 +169,7 @@
         var l_s = 40 + 60 * Math.random();
         var l_b = 100;
 
-        var formatData = [dt, tweet, b_d, b_s, b_b, l_d, l_s, l_b];
+        var formatData = [dt, parseFloat(tweet), b_d, b_s, b_b, l_d, l_s, l_b];
         return formatData;
     }
 
@@ -189,22 +179,25 @@
 
         if (e.keyCode == '40') {
             var coeff = formatData();
-            setStage();
-            changeBackground(320, 70, 20);
+            setStage(coeff[1], coeff[5], coeff[6], coeff[7]);
+            changeBackground(coeff[2], coeff[3], coeff[4]);
             instructions.innerText = coeff[0];
-            console.log(coeff);
+            index = index + 1;            
 
         }
         else if (e.keyCode == '38') {
-            console.log("up");
-            setStage();
-            changeBackground(320, 70, 20);
-            instructions.innerText = "";
+            var coeff = formatData();
+            setStage(coeff[1], coeff[5], coeff[6], coeff[7]);
+            changeBackground(coeff[2], coeff[3], coeff[4]);
+            instructions.innerText = coeff[0];
+            if (index > 1){
+                index = index - 1;
+            }
+            else{
+                index = 1;
+            }
         }
-    }       
-
-    console.log('test 4');
-    console.log(data);
+    }
 
     </script>
 </body>
