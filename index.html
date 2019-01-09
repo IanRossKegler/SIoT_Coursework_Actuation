@@ -133,8 +133,7 @@
                     lines.push(tarr);
                 }
             }
-
-            console.log(lines[0]);
+            return lines;
         }
 
         function getData(){
@@ -151,7 +150,7 @@
             xmlhttp.onreadystatechange = function () {               
                 if (xmlhttp.readyState == 4) {                   
                     var lines = xmlhttp.responseText;    
-                    processData(lines);                       
+                    return processData(lines);                       
                 }               
             }
 
@@ -160,7 +159,8 @@
         }
 
         document.onkeydown = checkKey;
-        getData();
+        var lines = getData();
+        console.log(line[0]);
     </script>
 </body>
 </html>
