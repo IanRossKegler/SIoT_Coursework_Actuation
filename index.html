@@ -20,7 +20,7 @@
     <center><h1 id="instructions"> Scroll Using Arrows</h1></center>
     <div id="container"></div>
     <script>
-        var index = 0;
+        var index = 1;
 
         function change_background(h, s, l) {
             var h = h.toString();
@@ -155,8 +155,8 @@
                     var lines = xmlhttp.responseText;    
                     x = processData(lines);  
                     console.log('test 2')
-                    console.log(lines)
-                    return lines;
+                    console.log(x)
+                    return x;
                 }               
             }
 
@@ -165,8 +165,8 @@
         }
 
         document.onkeydown = checkKey;
-        var x = getData();
-        console.log(x);
+        var data = getData();
+        console.log(data);
 
 
 
