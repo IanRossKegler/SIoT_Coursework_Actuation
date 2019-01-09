@@ -22,7 +22,7 @@
     <script>
         var index = 1;
 
-        function change_background(h, s, l) {
+        function changeBackground(h, s, l) {
             var h = h.toString();
             var s = s.toString();
             var l = l.toString();
@@ -78,7 +78,7 @@
             return line;
         }
         
-        function set_stage(){
+        function setStage(){
             var width = window.innerWidth;
             var height = window.innerHeight;
             var stage = new Konva.Stage({
@@ -100,21 +100,49 @@
             stage.add(layer);
         }
 
+        function formatData(){
+
+            if (index >= 1){
+                var point = data[index];
+            }
+
+            else {
+                var point = data[0];
+            }
+
+            var dt = point[0];
+            var tweet = point[1];
+            var uv = point[2];
+            var cc = point[3];
+
+            var b_d = 200 + 150 * uv;
+            var b_s = 10 + 90 * Math.random();
+            var b_b = 60 + 40 * Math.random();
+
+            var l_d = 60 + 110 * uv;
+            var l_s = 40 + 60 * Math.random();
+            var l_b = 100;
+
+            var formatData = [dt, tweet, b_d, b_s, b_b, l_d, l_s, l_b];
+            return formatData;
+        }
+
         function checkKey(e) {
 
             e = e || window.event;
 
             if (e.keyCode == '40') {
-                console.log("down");
-                set_stage();
-                change_background(320, 70, 20);
-                instructions.innerText = "";
+                var coeff = formatData();
+                setStage();
+                changeBackground(320, 70, 20);
+                instructions.innerText = coeff[0];
+                console.log(coeff);
 
             }
             else if (e.keyCode == '38') {
                 console.log("up");
-                set_stage();
-                change_background(320, 70, 20);
+                setStage();
+                changeBackground(320, 70, 20);
                 instructions.innerText = "";
             }
         }       
@@ -135,7 +163,6 @@
                     lines.push(tarr);
                 }
             }
-            console.log('test 1')
             return lines;
         }
 
@@ -154,8 +181,6 @@
                 if (xmlhttp.readyState == 4) {                   
                     var lines = xmlhttp.responseText;    
                     x = processData(lines);  
-                    console.log('test 2')
-                    console.log(x)
                     return x;
                 }               
             }
@@ -166,7 +191,6 @@
 
         document.onkeydown = checkKey;
         var data = getData();
-        console.log(data);
 
 
 
