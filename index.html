@@ -24,6 +24,7 @@
         document.onkeydown = checkKey;
         var index = 1;
         var data = getData();
+        console.log(data);
 
         function changeBackground(h, s, l) {
             var h = h.toString();
@@ -158,12 +159,12 @@
             var lines = [];
             
             for (var i=1; i<allTextLines.length; i++) {
-                var data = allTextLines[i].split(',');
-                if (data.length == headers.length) {
+                var contents = allTextLines[i].split(',');
+                if (contents.length == headers.length) {
                     var tarr = [];
                     
                     for (var j=0; j<headers.length; j++) {
-                        tarr.push(data[j]);
+                        tarr.push(contents[j]);
                     }
                     lines.push(tarr);
                 }
