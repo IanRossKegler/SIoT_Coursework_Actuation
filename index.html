@@ -23,7 +23,7 @@
 
         document.onkeydown = checkKey;
         var index = 1;
-        window.data = getData();
+        var data = getData();
 
         function changeBackground(h, s, l) {
             var h = h.toString();
@@ -105,12 +105,14 @@
 
         function formatData(){
 
+            console.log(data)
+
             if (index >= 1){
                 var point = data[index];
             }
 
             else {
-                var point = data[0];
+                var point = data[1];
             }
 
             var dt = point[0];
