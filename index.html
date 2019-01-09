@@ -54,7 +54,9 @@
         xmlhttp.onreadystatechange = function () {               
             if (xmlhttp.readyState == 4) {                   
                 var lines = xmlhttp.responseText;    
-                x = processData(lines);  
+                x = processData(lines);
+                console.log('test 1');
+                console.log(x);
                 return x;
             }               
         }
