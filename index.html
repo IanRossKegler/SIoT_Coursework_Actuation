@@ -156,6 +156,7 @@
                     x = processData(lines);  
                     console.log('test 2')
                     console.log(lines)
+                    return lines;
                 }               
             }
 
@@ -164,8 +165,8 @@
         }
 
         document.onkeydown = checkKey;
-        var lines = getData();
-        console.log(lines[0]);
+        var x = getData();
+        console.log(x);
 
 
 
