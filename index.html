@@ -19,8 +19,15 @@
     </style>
     <center><h1 id="instructions"> Scroll Using Arrows</h1></center>
     <div id="container"></div>
-    <script>   
-    
+    <script>  
+
+    var index = 1;
+    var data = [];
+    getData();
+
+    console.log('test 1');
+    console.log(data);
+
     function processData(allText) {
         var allTextLines = allText.split(/\r\n|\n/);
         var headers = allTextLines[0].split(',');
@@ -54,10 +61,7 @@
         xmlhttp.onreadystatechange = function () {               
             if (xmlhttp.readyState == 4) {                   
                 var lines = xmlhttp.responseText;    
-                x = processData(lines);
-                console.log('test 1');
-                console.log(x);
-                return x;
+                data = processData(lines);
             }               
         }
 
@@ -65,8 +69,7 @@
         xmlhttp.send();    
     }
     
-    var index = 1;
-    var data = getData();
+
     console.log('test 2');
     console.log(data);
 
@@ -152,7 +155,8 @@
 
     function formatData(){
 
-        console.log(data)
+        console.log('test 3');
+        console.log(data);
 
         if (index >= 1){
             var point = data[index];
@@ -199,7 +203,7 @@
         }
     }       
 
-    console.log('test 3');
+    console.log('test 4');
     console.log(data);
 
     </script>
